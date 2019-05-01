@@ -1,0 +1,24 @@
+How to build?
+
+    nix-build -A Sk
+
+What does the source code look like?
+
+    Sk is described, at various levels of abstraction, using ADTs and free
+    constructions. These data structures describe the data flow and processes
+    that make up Sk, at a very high level, free from operational details such
+    as I/O, database access, retries and timeouts.
+
+    Moreover, the interesting parts of these data structures are completely
+    devoid of function arrows and I/O actions, and can therefore be turned into
+    diagrams or pretty-printed.
+
+    In other places you will find code that interprets these data structures,
+    to actually produce effects. These are usually functors mapping free
+    categories to Kleisli categories. This code is at a lower level than the
+    data structures themselves.
+
+    This approach allows the programmer to design the system at an abstract
+    level, without dealing with operational details, but while enjoying the
+    amazing Haskell tooling and type checker. This should lower the cognitive
+    load and ease the understanding of the system.
